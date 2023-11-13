@@ -27,15 +27,21 @@ document.querySelector('#app').innerHTML = `
 //setupCounter(document.getElementById('button'))
 
 //console.log(document.getElementsByClassName("test"))
-let input;
-let result;
+let input = "";
+let icount = 0;
 let box = document.getElementsByClassName("resultbox");
 let numbutton = document.getElementsByClassName("num");
 for (let i = 0; i < numbutton.length; i++)
 {
   numbutton[i].addEventListener('click',numinput);
 }
-function numinput(num)
+box.innerHTML = "0";
+function numinput()
 {
-  console.log(num.innerHTML);
+  console.log(this.innerHTML);
+  input += this.innerHTML;
+  icount++;
+  console.log(input);
+  box.innerHTML = input;
+  console.log(box.innerHTML);
 }
