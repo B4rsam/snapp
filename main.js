@@ -31,7 +31,7 @@ let flag = 0;
 firstInput = secondInput = "";
 
 document.getElementById("=").addEventListener('click',equals);
-document.getElementById("C").addEventListener('click',dummy);
+document.getElementById("C").addEventListener('click',clear);
 
 for (let i = 0; i < numbutton.length; i++)
 {
@@ -99,7 +99,9 @@ function equals()
   flag = 0;
 }
 
-function dummy()
+function clear()
 {
-  console.log(this.innerHTML);
+  firstInput = secondInput = "";
+  flag = 0;
+  console.clear();
 }
