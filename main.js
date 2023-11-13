@@ -26,10 +26,11 @@ document.querySelector('#app').innerHTML = `
 `
 let numbutton = document.getElementsByClassName("num");
 let signbutton = document.getElementsByClassName("sign");
-let firstInput,secondInput,display = "";
+let firstInput,secondInput,result,display = "";
+let flag = 0;
 firstInput = secondInput = "";
 
-document.getElementById("=").addEventListener('click',dummy);
+document.getElementById("=").addEventListener('click',equals);
 document.getElementById("C").addEventListener('click',dummy);
 
 for (let i = 0; i < numbutton.length; i++)
@@ -44,14 +45,59 @@ for (let i = 0; i < signbutton.length; i++)
 function numInput()
 {
   console.clear();
-  firstInput += parseInt(this.innerHTML);
-  display = firstInput;
-  console.log(display);
+  if (flag != 0)
+  {
+    secondInput += this.innerHTML;
+    console.log(secondInput);
+  }
+  else
+  {
+    firstInput += this.innerHTML;
+    console.log(firstInput);
+  }
 }
 
 function signInput()
 {
+  switch(this.innerHTML)
+  {
+    case "+":
+      flag = 1;
+      break;
+    case "-":
+      flag = 2;
+      break;
+    case "*":
+      flag = 3;
+      break;
+    case "/":
+      flag = 4;
+      break;
+  }
+}
 
+function equals()
+{
+  switch(flag)
+  {
+    case 0:
+
+      break;
+    case 1:
+      result = parseInt(firstInput) + parseInt(secondInput);
+      break;
+    case 2:
+      result = parseInt(firstInput) - parseInt(secondInput);
+      break;
+    case 3:
+      result = parseInt(firstInput) * parseInt(secondInput);
+      break;
+    case 4:
+      result = parseInt(firstInput) / parseInt(secondInput);
+      break;
+  }
+  console.log(result);
+  flag = 0;
 }
 
 function dummy()
