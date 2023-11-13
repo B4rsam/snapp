@@ -24,16 +24,14 @@ document.querySelector('#app').innerHTML = `
     </div>
   </div>
 `
-//setupCounter(document.getElementById('button'))
-
-//console.log(document.getElementsByClassName("test"))
-let input1 = "";
-let input2 = "";
-let icount = 0;
-let opFlag = 0;
-let box = document.getElementsByClassName("resultbox");
 let numbutton = document.getElementsByClassName("num");
 let signbutton = document.getElementsByClassName("sign");
+let firstInput,secondInput,display = "";
+firstInput = secondInput = "";
+
+document.getElementById("=").addEventListener('click',dummy);
+document.getElementById("C").addEventListener('click',dummy);
+
 for (let i = 0; i < numbutton.length; i++)
 {
   numbutton[i].addEventListener('click',numInput);
@@ -43,47 +41,20 @@ for (let i = 0; i < signbutton.length; i++)
   signbutton[i].addEventListener('click',signInput);
 }
 
-document.getElementById("=").addEventListener('click',equals);
-document.getElementById("C").addEventListener('click',clear);
-
-box.innerHTML = "0";
 function numInput()
 {
   console.clear();
-  input1 += this.innerHTML;
-  icount++;
-  box.innerHTML = input1;
-  console.log(box.innerHTML);
+  firstInput += parseInt(this.innerHTML);
+  display = firstInput;
+  console.log(display);
 }
 
 function signInput()
 {
+
+}
+
+function dummy()
+{
   console.log(this.innerHTML);
-  switch(this.innerHTML)
-  {
-    case "+":
-    case "-":
-    case "*":
-    case "/":
-
-  }
-}
-
-function equals(opFlag)
-{
-  switch(opFlag)
-  {
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-  }
-}
-
-function clear()
-{
-  icount = 0;
-  input1 = "";
-  opFlag = 0;
-  console.clear();
 }
