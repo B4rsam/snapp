@@ -31,12 +31,21 @@ let input = "";
 let icount = 0;
 let box = document.getElementsByClassName("resultbox");
 let numbutton = document.getElementsByClassName("num");
+let signbutton = document.getElementsByClassName("sign");
 for (let i = 0; i < numbutton.length; i++)
 {
-  numbutton[i].addEventListener('click',numinput);
+  numbutton[i].addEventListener('click',numInput);
 }
+for (let i = 0; i < signbutton.length; i++)
+{
+  signbutton[i].addEventListener('click',signInput);
+}
+
+document.getElementById("=").addEventListener('click',equals());
+document.getElementById("C").addEventListener('click',clear());
+
 box.innerHTML = "0";
-function numinput()
+function numInput()
 {
   console.log(this.innerHTML);
   input += this.innerHTML;
@@ -44,4 +53,19 @@ function numinput()
   console.log(input);
   box.innerHTML = input;
   console.log(box.innerHTML);
+}
+
+function signInput()
+{
+  console.log(this.innerHTML);
+}
+
+function equals()
+{
+
+}
+
+function clear()
+{
+
 }
