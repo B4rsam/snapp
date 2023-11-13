@@ -45,15 +45,15 @@ for (let i = 0; i < signbutton.length; i++)
 function numInput()
 {
   console.clear();
-  if (flag != 0)
-  {
-    secondInput += this.innerHTML;
-    console.log(secondInput);
-  }
-  else
+  if (flag == 0)
   {
     firstInput += this.innerHTML;
     console.log(firstInput);
+  }
+  else
+  {
+    secondInput += this.innerHTML;
+    console.log(secondInput);
   }
 }
 
@@ -67,7 +67,7 @@ function signInput()
     case "-":
       flag = 2;
       break;
-    case "*":
+    case "x":
       flag = 3;
       break;
     case "/":
@@ -81,7 +81,6 @@ function equals()
   switch(flag)
   {
     case 0:
-
       break;
     case 1:
       result = parseInt(firstInput) + parseInt(secondInput);
