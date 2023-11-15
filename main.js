@@ -3,7 +3,7 @@ import { setupCounter } from './counter.js'
 
 document.querySelector('#app').innerHTML = `
   <div class="main">
-    <div class="resultbox" style="background-color: white;color: black;"></div>
+    <div id="resultbox" style="background-color: white;color: black;">0</div>
     <div class="buttonbox"> 
       <button class="num" id="1">1</button>
       <button class="num" id="2">2</button>
@@ -49,11 +49,13 @@ function numInput()
   {
     firstInput += this.innerHTML;
     console.log(firstInput);
+    document.getElementById("resultbox").innerHTML = firstInput;
   }
   else
   {
     secondInput += this.innerHTML;
     console.log(secondInput);
+    document.getElementById("resultbox").innerHTML = secondInput;
   }
 }
 
@@ -95,6 +97,7 @@ function equals()
       result = parseInt(firstInput) / parseInt(secondInput);
       break;
   }
+  document.getElementById("resultbox").innerHTML = result;
   console.log(result);
   flag = 0;
 }
@@ -104,4 +107,5 @@ function clear()
   firstInput = secondInput = "";
   flag = 0;
   console.clear();
+  document.getElementById("resultbox").innerHTML = "0";
 }
